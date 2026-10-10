@@ -10,8 +10,8 @@
 
 ## 当前版本
 
-- 版本：v1.0.0
+- 版本：v1.0.1
 - 文件大小：357.7 MB
-- SHA-256：`d25660bdb4ab7dadf17c49e307b65edefa1f6da321ecefc27c83b6c6417a5789`
+- SHA-256：`fa1227c17ff0f514c7a53db73a09d3f2f11195a527e0a007f8c9e53c05448b40`
 
 源码仓库：https://github.com/Zeevway/AILeaderboardSync
