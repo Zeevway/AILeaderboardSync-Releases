@@ -1,0 +1,31 @@
+name: Update Arena leaderboard data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install requests
+      - run: python scripts/update_arena_data.py
+      - name: Commit updated data
+        run: |
+          git add arena_data
+          if git diff --cached --quiet -- arena_data; then
+            echo "Arena data is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update Arena leaderboard data"
+          git push
